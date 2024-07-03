@@ -48,17 +48,17 @@ phases:
         - echo "Build completed successfully!"
         - echo "Running SonarQube analysis result"
         - sonar-scanner -Dsonar.projectKey=swiggy -Dsonar.sources=. -Dsonar.host.url=http://54.175.189.11/:9000/
-       - aws ses send-email --from "nirav9019@yahoo.com" --to "niravshah9019@gmail.com" --subject "CodeBuild Status: $CODEBUILD_BUILD_ID" --text "Build status: $CODEBUILD_BUILD_STATUS" --region "ap-south-1" 
-        Update with your preferred AWS region
+     #  - aws ses send-email --from "nirav9019@yahoo.com" --to "niravshah9019@gmail.com" --subject "CodeBuild Status: $CODEBUILD_BUILD_ID" --text "Build status: $CODEBUILD_BUILD_STATUS" --region "ap-south-1" 
+     #   Update with your preferred AWS region
 
-post_build:
-  commands:
-    - aws ses send-email \
-        --from "nirav9019@yahoo.com" \
-        --to "niravshah9019@gmail.com" \
-        --subject "CodeBuild Status: $CODEBUILD_BUILD_ID" \
-        --text "Build status: $CODEBUILD_BUILD_STATUS" \
-        --region "us-east-1" # Update with your preferred AWS region
+#post_build:
+ # commands:
+  #  - aws ses send-email \
+   #     --from "nirav9019@yahoo.com" \
+    #    --to "niravshah9019@gmail.com" \
+     #   --subject "CodeBuild Status: $CODEBUILD_BUILD_ID" \
+      #  --text "Build status: $CODEBUILD_BUILD_STATUS" \
+       # --region "us-east-1" # Update with your preferred AWS region
 
 
 artifacts:
